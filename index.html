@@ -1,77 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Free Fire Tournament</title>
+  <title>Novastrike Arena - Free Fire Tournament</title>
   <style>
-    body {
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+
+    html, body {
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: #fff;
+      overflow-x: hidden;
       text-align: center;
     }
+
+    /* ✅ Image header instead of text */
     header {
-      padding: 40px 10px;
-      font-size: 40px;
-      font-weight: 800;
-      background: linear-gradient(45deg, #ff416c, #ff4b2b);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-transform: uppercase;
-      letter-spacing: 2px;
+      padding: 40px 15px 20px;
     }
+
+    header img {
+      max-width: 300px;
+      width: 80%;
+      height: auto;
+      border-radius: 15px;
+      
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    header img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(255,255,255,0.25);
+    }
+
     section {
       background: rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 20px;
-      margin: 30px auto;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 18px;
       width: 90%;
-      max-width: 800px;
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+      max-width: 850px;
+      margin: 40px auto;
+      padding: 30px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      transition: box-shadow 0.3s ease, filter 0.3s ease;
     }
+
+    section:hover {
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+      filter: brightness(1.05);
+    }
+
     h2 {
       color: #ffcc00;
+      font-size: 26px;
+      text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+      margin-bottom: 20px;
     }
+
     ul {
       text-align: left;
-      line-height: 1.8;
       font-size: 17px;
+      line-height: 1.8;
+      padding-left: 40px;
+      list-style-type: disc;
     }
+
+    li {
+      margin-bottom: 10px;
+    }
+
     .register-btn {
       display: inline-block;
-      margin-top: 25px;
       background: linear-gradient(90deg, #ff512f, #dd2476);
       color: #fff;
       text-decoration: none;
       padding: 15px 40px;
       border-radius: 30px;
       font-size: 18px;
-      font-weight: bold;
+      font-weight: 600;
+      margin-top: 25px;
       transition: all 0.3s ease;
     }
+
     .register-btn:hover {
-      transform: scale(1.05);
-      background: linear-gradient(90deg, #dd2476, #ff512f);
+      box-shadow: 0 0 20px rgba(255, 81, 47, 0.7);
+      filter: brightness(1.2);
     }
+
     .match-list {
-      margin-top: 20px;
-      text-align: center;
-      font-size: 18px;
+      margin-top: 25px;
+      font-size: 17px;
+      text-align: left;
     }
+
     .match-item {
-      background: rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.12);
+      border-left: 4px solid #ffcc00;
       border-radius: 10px;
-      padding: 10px;
-      margin: 10px auto;
-      width: 80%;
+      padding: 15px 20px;
+      margin-bottom: 15px;
+      line-height: 1.6;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .match-item:hover {
+      box-shadow: 0 0 15px rgba(255,255,255,0.15);
+    }
+
+    .details {
+      background: rgba(255, 255, 255, 0.08);
+      border-left: 4px solid #dd2476;
+      margin-top: 25px;
+      font-size: 15px;
+      line-height: 1.9;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .md-label {
+      font-weight: 700;
+      color: #ffcc00;
+    }
+
+    .details b {
+      color: #ffcc00;
+    }
+
+    footer {
+      margin: 50px 0 20px;
+      font-size: 14px;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
 
-  <header>🔥 Free Fire Tournament Hub 🔥</header>
+  <!-- ✅ Replace text header with your image -->
+  <header>
+    <img src="NSA2.png" alt="Novastrike Arena Logo">
+  </header>
 
   <section id="rules">
     <h2>Rules, Terms & Conditions</h2>
@@ -88,33 +163,59 @@
     </ul>
   </section>
 
-  <a class="register-btn" href="https://forms.gle/5zZCiTHDanMT8HdT9" target="_blank">Register for Next Matches</a>
+  <a class="register-btn" href="https://forms.gle/5zZCiTHDanMT8HdT9" target="_blank">
+    Register for Next Matches
+  </a>
 
   <section>
     <h2>Upcoming Matches</h2>
+
     <div class="match-list">
-      <div class="match-item">Date: 16/10/2025 | Time: 09:00 PM | Match code:001 | Battle Royal (Barmuda)</div>
-      <div class="match-item">Date: xx/10/2025 | Time: xx:00 PM/AM | Match code:xxx | Battle Royal (Barmuda)</div>
-      <div class="match-item">Date: xx/10/2025 | Time: xx:00 PM/AM | Match code:xxx | Battle Royal (Barmuda)</div>
-      <div class="match-item"> Match Details:
-        Players- Min 20|
-        Entry fee- 30 Rupees|
-        Prize money- 25 Rs./ kill (You will get 25 rupees for every kill)|
-        Extra Prize money- The winner(Booyah) will get 20 Rupees extra.|
-        Charector skill- Yes|
-        Gun attributes- Yes|
-        Air drop- No|
-        Team up- Not allowed ( If noticed,prize money will be given to others)|
-        Payment mode- Online ( And offline if you are local)|
-        Refund- If you don't join room or don't play for any reason, you will not be refunded.|
-        Revive- No revivation ways allowd.|
-        Arsenal- No|
-        ****If you are interested to play with a bigger ammount, Whatsapp me on 8100229106 mobile no.|
-        ****Next matches will be announced soon|
-        ****Prize money will ve given withing 4 hours of the match ending.|
+      <div class="match-item">
+        <b>Date:</b> 16/10/2025<br>
+        <b>Time:</b> 09:00 PM<br>
+        <b>Match Code:</b> 001<br>
+        <b>Mode:</b> Battle Royal (Bermuda)
+      </div>
+
+      <div class="match-item">
+        <b>Date:</b> xx/10/2025<br>
+        <b>Time:</b> xx:00 PM/AM<br>
+        <b>Match Code:</b> xxx<br>
+        <b>Mode:</b> Battle Royal (Bermuda)
+      </div>
+
+      <div class="match-item">
+        <b>Date:</b> xx/10/2025<br>
+        <b>Time:</b> xx:00 PM/AM<br>
+        <b>Match Code:</b> xxx<br>
+        <b>Mode:</b> Battle Royal (Bermuda)
+      </div>
+
+      <div class="details">
+        <b>Match Details:</b><br>
+        • <span class="md-label">Players:</span> Min 20<br>
+        • <span class="md-label">Entry Fee:</span> ₹30<br>
+        • <span class="md-label">Prize Money:</span> ₹25 per kill<br>
+        • <span class="md-label">Extra Reward:</span> Booyah winner gets ₹20 extra<br>
+        • <span class="md-label">Character Skill:</span> Yes<br>
+        • <span class="md-label">Gun Attributes:</span> Yes<br>
+        • <span class="md-label">Air Drop:</span> No<br>
+        • <span class="md-label">Team Up:</span> Not allowed (If noticed, prize money will be given to others)<br>
+        • <span class="md-label">Payment Mode:</span> Online (Offline if local)<br>
+        • <span class="md-label">Refund:</span> Not available if you don’t join or play<br>
+        • <span class="md-label">Revive:</span> Not allowed<br>
+        • <span class="md-label">Arsenal:</span> No<br><br>
+        ****If you are interested to play with a bigger amount, WhatsApp me on <b>8100229106</b>.<br>
+        ****Next matches will be announced soon.<br>
+        ****Prize money will be given within 4 hours of match ending.
       </div>
     </div>
   </section>
+
+  <footer>
+    © 2025 Novastrike Arena | All Rights Reserved
+  </footer>
 
 </body>
 </html>

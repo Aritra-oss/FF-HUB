@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Novastrike Arena - Free Fire Tournament</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap');
 
     * {
       box-sizing: border-box;
@@ -14,62 +14,139 @@
     }
 
     html, body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: #fff;
+      font-family: 'Nunito', sans-serif;
+      background: radial-gradient(circle at top, #000000 0%, #0a0a0a 100%);
+      color: #f1f1f1;
       overflow-x: hidden;
-      text-align: center;
     }
 
-    /* ✅ Image header instead of text */
+    /* NAVBAR */
     header {
-      padding: 40px 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 18px 0;
     }
 
-    header img {
-      max-width: 300px;
-      width: 80%;
-      height: auto;
-      border-radius: 15px;
-      
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-left: 10px;
     }
 
-    header img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 40px rgba(255,255,255,0.25);
+    .logo img {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      object-fit: cover;
     }
 
+    .logo h1 {
+      font-size: 20px;
+      font-weight: 700;
+      color: white;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    .login-btn {
+      padding: 10px 25px;
+      background: linear-gradient(90deg, black, #000009);
+      color: #fff;
+      border: none;
+      border-radius: 25px 0 0 25px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      margin-right: 0;
+      box-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .login-btn:hover {
+      transform: translateY(-50%) scale(1.05);
+      background: linear-gradient(90deg, #007bff, #00ffff);
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+    }
+
+    /* HERO */
+    .hero {
+      text-align: center;
+      margin: 70px 20px 40px;
+    }
+
+    .hero h2 {
+      font-size: 24px;
+      color: #00ffff;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    /* SECTIONS */
     section {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 18px;
       width: 90%;
-      max-width: 850px;
-      margin: 40px auto;
+      max-width: 900px;
+      margin: 30px auto;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
       padding: 30px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
-      transition: box-shadow 0.3s ease, filter 0.3s ease;
-    }
-
-    section:hover {
-      box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
-      filter: brightness(1.05);
     }
 
     h2 {
       color: #ffcc00;
-      font-size: 26px;
-      text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
-      margin-bottom: 20px;
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .match-list {
+      text-align: left;
+      font-size: 16px;
+    }
+
+    .match-item {
+      background: rgba(255, 255, 255, 0.08);
+      border-left: 4px solid #00ffff;
+      border-radius: 10px;
+      padding: 15px 20px;
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+
+    .details {
+      background: rgba(255,255,255,0.05);
+      border-left: 4px solid #dd2476;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: left;
+      line-height: 1.8;
+      font-size: 16px;
+      margin-top: 25px;
+    }
+
+    .md-label {
+      font-weight: 700;
+      color: #00ffff;
     }
 
     ul {
-      text-align: left;
-      font-size: 17px;
-      line-height: 1.8;
-      padding-left: 40px;
       list-style-type: disc;
+      padding-left: 40px;
+      text-align: left;
+      font-size: 16px;
+      line-height: 1.8;
     }
 
     li {
@@ -83,93 +160,46 @@
       text-decoration: none;
       padding: 15px 40px;
       border-radius: 30px;
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 600;
-      margin-top: 25px;
+      margin: 30px auto 10px;
       transition: all 0.3s ease;
     }
 
     .register-btn:hover {
-      box-shadow: 0 0 20px rgba(255, 81, 47, 0.7);
-      filter: brightness(1.2);
-    }
-
-    .match-list {
-      margin-top: 25px;
-      font-size: 17px;
-      text-align: left;
-    }
-
-    .match-item {
-      background: rgba(255,255,255,0.12);
-      border-left: 4px solid #ffcc00;
-      border-radius: 10px;
-      padding: 15px 20px;
-      margin-bottom: 15px;
-      line-height: 1.6;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      transition: box-shadow 0.3s ease;
-    }
-
-    .match-item:hover {
-      box-shadow: 0 0 15px rgba(255,255,255,0.15);
-    }
-
-    .details {
-      background: rgba(255, 255, 255, 0.08);
-      border-left: 4px solid #dd2476;
-      margin-top: 25px;
-      font-size: 15px;
-      line-height: 1.9;
-      padding: 20px;
-      border-radius: 10px;
-    }
-
-    .md-label {
-      font-weight: 700;
-      color: #ffcc00;
-    }
-
-    .details b {
-      color: #ffcc00;
+      transform: scale(1.05);
+      background: linear-gradient(90deg, #dd2476, #ff512f);
     }
 
     footer {
-      margin: 50px 0 20px;
+      text-align: center;
+      margin: 30px 0;
+      color: #888;
       font-size: 14px;
-      color: #aaa;
     }
   </style>
 </head>
 <body>
 
-  <!-- ✅ Replace text header with your image -->
   <header>
-    <img src="NSA2.png" alt="Novastrike Arena Logo">
+    <div class="logo">
+      <img src="NSA2.png" alt="Novastrike Arena Logo">
+      <h1>NovaStrike Arena</h1>
+    </div>
+    <a href="signup.html"><button class="login-btn">Sign Up</button></a>
   </header>
 
-  <section id="rules">
-    <h2>Rules, Terms & Conditions</h2>
-    <ul>
-      <li>All participants must pay the entry fee online via the provided QR code.</li>
-      <li>Prize money and other payments will also be processed through online QR-based methods only.</li>
-      <li>Any suspicious or unfair activities (like hacking, teaming, use of third-party apps) will lead to immediate disqualification.</li>
-      <li>If a participant notices cheating, they must <b>screen record</b> and submit proof.</li>
-      <li>Players who get eliminated due to a proven cheater will receive a <b>refund</b>.</li>
-      <li>Admin decisions are final and must be respected.</li>
-      <li>All players must join the room on time. Late entries will not be entertained.</li>
-      <li>Ensure your Free Fire name matches the one you register with.</li>
-      <li>Respect other players. Any abusive language or behavior will lead to a ban from future tournaments.</li>
-    </ul>
-  </section>
+  <div class="hero">
+    <h2>We are here to recycle your gaming skill ⚡</h2>
+  </div>
 
-  <a class="register-btn" href="https://forms.gle/5zZCiTHDanMT8HdT9" target="_blank">
-    Register for Next Matches
-  </a>
+  <!-- ✅ Register Button moved up -->
+  <div style="text-align:center;">
+    <a class="register-btn" href="https://forms.gle/5zZCiTHDanMT8HdT9" target="_blank">Register for Next Matches</a>
+  </div>
 
-  <section>
+  <section id="upcoming">
     <h2>Upcoming Matches</h2>
-
     <div class="match-list">
       <div class="match-item">
         <b>Date:</b> 16/10/2025<br>
@@ -180,37 +210,46 @@
 
       <div class="match-item">
         <b>Date:</b> xx/10/2025<br>
-        <b>Time:</b> xx:00 PM/AM<br>
+        <b>Time:</b> xx:00 PM<br>
         <b>Match Code:</b> xxx<br>
         <b>Mode:</b> Battle Royal (Bermuda)
-      </div>
-
-      <div class="match-item">
-        <b>Date:</b> xx/10/2025<br>
-        <b>Time:</b> xx:00 PM/AM<br>
-        <b>Match Code:</b> xxx<br>
-        <b>Mode:</b> Battle Royal (Bermuda)
-      </div>
-
-      <div class="details">
-        <b>Match Details:</b><br>
-        • <span class="md-label">Players:</span> Min 20<br>
-        • <span class="md-label">Entry Fee:</span> ₹30<br>
-        • <span class="md-label">Prize Money:</span> ₹25 per kill<br>
-        • <span class="md-label">Extra Reward:</span> Booyah winner gets ₹20 extra<br>
-        • <span class="md-label">Character Skill:</span> Yes<br>
-        • <span class="md-label">Gun Attributes:</span> Yes<br>
-        • <span class="md-label">Air Drop:</span> No<br>
-        • <span class="md-label">Team Up:</span> Not allowed (If noticed, prize money will be given to others)<br>
-        • <span class="md-label">Payment Mode:</span> Online (Offline if local)<br>
-        • <span class="md-label">Refund:</span> Not available if you don’t join or play<br>
-        • <span class="md-label">Revive:</span> Not allowed<br>
-        • <span class="md-label">Arsenal:</span> No<br><br>
-        ****If you are interested to play with a bigger amount, WhatsApp me on <b>8100229106</b>.<br>
-        ****Next matches will be announced soon.<br>
-        ****Prize money will be given within 4 hours of match ending.
       </div>
     </div>
+  </section>
+
+  <section id="details">
+    <h2>Match Details</h2>
+    <div class="details">
+      • <span class="md-label">Players:</span> Min 20<br>
+      • <span class="md-label">Entry Fee:</span> ₹30<br>
+      • <span class="md-label">Prize Money:</span> ₹25 per kill<br>
+      • <span class="md-label">Extra Reward:</span> Booyah winner gets ₹20 extra<br>
+      • <span class="md-label">Character Skill:</span> Yes<br>
+      • <span class="md-label">Gun Attributes:</span> Yes<br>
+      • <span class="md-label">Air Drop:</span> No<br>
+      • <span class="md-label">Team Up:</span> Not allowed<br>
+      • <span class="md-label">Payment Mode:</span> Online (Offline if local)<br>
+      • <span class="md-label">Refund:</span> Not available<br>
+      • <span class="md-label">Revive:</span> Not allowed<br>
+      • <span class="md-label">Arsenal:</span> No<br><br>
+      ⚡ If interested in higher-stake matches, contact on <b>8100229106</b><br>
+      ⚡ Prize money will be credited within 4 hours after the match.
+    </div>
+  </section>
+
+  <section id="rules">
+    <h2>Rules, Terms & Conditions</h2>
+    <ul>
+      <li>All participants must pay the entry fee online via the provided QR code.</li>
+      <li>Payments and prizes will only be processed online.</li>
+      <li>Cheating or use of illegal tools leads to instant disqualification.</li>
+      <li>Proof of cheating must be submitted through a screen recording.</li>
+      <li>Eliminated players by cheaters may get refunds.</li>
+      <li>Admin decisions are final and binding.</li>
+      <li>Late entries are not allowed.</li>
+      <li>Free Fire name must match registration details.</li>
+      <li>Abusive behavior results in future bans.</li>
+    </ul>
   </section>
 
   <footer>

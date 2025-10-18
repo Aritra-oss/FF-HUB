@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>OTP Verification | NovaStrike Arena</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: radial-gradient(circle at top left, #050505, #0a0a0a, #1a1a1a);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .otp-container {
+      width: 100%;
+      max-width: 420px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(15px);
+      border-radius: 22px;
+      padding: 2.6rem 2.2rem;
+      box-shadow: 0 10px 30px rgba(0,255,255,0.10), 0 2px 8px rgba(0,0,0,0.6);
+      animation: fadeIn .9s ease both;
+      max-height: calc(100vh - 100px);
+      overflow: auto;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(22px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.85rem;
+      margin-bottom: 1.9rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 800;
+      background: linear-gradient(90deg,#00ffff,#ff00ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p {
+      text-align: center;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      color: #cccccc;
+    }
+
+    .input-box {
+      margin-bottom: 1.35rem;
+    }
+
+    .input-box label {
+      display: block;
+      margin-bottom: 7px;
+      font-weight: 700;
+      font-size: .95rem;
+      color: #00ffff;
+      letter-spacing: .4px;
+    }
+
+    .input-box input {
+      width: 100%;
+      padding: 13px 14px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      background: rgba(255,255,255,0.10);
+      color: #fff;
+      font-size: 1.1rem;
+      text-align: center;
+      letter-spacing: 4px;
+      transition: all .18s ease;
+    }
+
+    .input-box input:focus {
+      background: rgba(255,255,255,0.14);
+      box-shadow: 0 0 10px rgba(0,255,255,0.18);
+    }
+
+    button {
+      width: 100%;
+      padding: 13px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(90deg,#00ffff,#0077ff);
+      color: #000;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: .4px;
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+
+    button:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 22px rgba(0,255,255,0.12);
+    }
+
+    .resend {
+      text-align: center;
+      margin-top: 1rem;
+      color: #00ffff;
+      font-weight: 600;
+      letter-spacing: 0.4px;
+      cursor: pointer;
+      transition: color 0.25s ease;
+    }
+
+    .resend:hover {
+      color: #ff00ff;
+    }
+
+    footer {
+      text-align:center;
+      margin-top:20px;
+      opacity:.7;
+      font-size:.85rem;
+      letter-spacing:.4px;
+    }
+
+    @media (max-width:420px){
+      body { padding: 12px; }
+      .otp-container { padding: 1.6rem 1.2rem; border-radius: 14px; }
+      h1 { font-size: 1.5rem; margin-bottom:1.25rem; }
+      .input-box input { padding:12px; font-size:1rem; }
+      button { padding:12px; font-size:1rem; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="otp-container">
+    <h1>OTP Verification</h1>
+    <p>Please enter the 6-digit code sent to your registered mobile number </p>
+
+    <form id="otpForm">
+      <div class="input-box">
+        <label for="otp">Enter OTP</label>
+        <input id="otp" type="text" placeholder="" maxlength="6" pattern="[0-9]{6}" required>
+      </div>
+
+      <button type="submit">Verify OTP</button>
+    </form>
+
+    <div class="resend" id="resend">Resend OTP</div>
+  </div>
+
+  <footer>© 2025 NovaStrike Arena</footer>
+
+  <script>
+    const form = document.getElementById('otpForm');
+    const resend = document.getElementById('resend');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const otp = document.getElementById('otp').value.trim();
+
+      if (!/^[0-9]{6}$/.test(otp)) {
+        alert('Please enter a valid 6-digit OTP.');
+        return;
+      }
+
+      alert('✅ OTP Verified Successfully!');
+      // Redirect after verification (e.g., to dashboard.html)
+      window.location.href = "dashboard.html";
+    });
+
+    resend.addEventListener('click', function () {
+      alert('🔁 New OTP sent to your mobile number!');
+    });
+  </script>
+</body>
+</html>

@@ -96,7 +96,6 @@
       box-shadow: 0 8px 22px rgba(0,255,255,0.12);
     }
 
-    /* Sign Up Button */
     .signup-btn {
       margin-top: 1rem;
       display: block;
@@ -132,7 +131,6 @@
       .input-box input { padding:12px; }
       button[type="submit"]{ padding:12px; font-size:1rem; }
     }
-
   </style>
 </head>
 <body>
@@ -146,44 +144,28 @@
         <input id="mobile" type="tel" placeholder="Enter 10-digit mobile" pattern="[0-9]{10}" maxlength="10" required>
       </div>
 
-      <div class="input-box">
-        <label for="password">Password</label>
-        <input id="password" type="password" placeholder="Enter your password" required>
-      </div>
-
-      <button type="submit">Sign In</button>
+      <button type="submit" onclick="goToOTPPage(event)">Get OTP</button>
     </form>
 
-     <a href="signup.html" style="text-decoration: none; display: block;"> <button class="signup-btn" >Already have an account? Sign in</button> </a>
+    <a href="signup.html" style="text-decoration: none; display: block;">
+      <button class="signup-btn">Don’t have an account? Sign Up</button>
+    </a>
   </div>
 
   <footer>© 2025 NovaStrike Arena</footer>
 
   <script>
-    const form = document.getElementById('signinForm');
-
-    form.addEventListener('submit', function (e) {
+    function goToOTPPage(e) {
       e.preventDefault();
-      const mobile = document.getElementById('mobile').value.trim();
-      const pass = document.getElementById('password').value;
-
-      if (!mobile || !pass) {
-        alert('Please fill all fields.');
-        return;
-      }
+      const mobile = document.getElementById("mobile").value.trim();
 
       if (!/^\d{10}$/.test(mobile)) {
-        alert('Please enter a valid 10-digit mobile number.');
+        alert("Please enter a valid 10-digit mobile number.");
         return;
       }
 
-      alert('Welcome back! You have signed in successfully.');
-    });
-
-    function goToSignUp() {
-      alert("Redirecting to Sign Up page...");
-      // Replace with your real signup page URL:
-      // window.location.href = "login.html";
+      alert("OTP sent successfully!");
+      window.location.href = "otp2.html"; // ✅ Redirects to otp2.html now
     }
   </script>
 </body>

@@ -143,6 +143,22 @@
             height: 100%;
             object-fit: cover;
             display: block;
+            opacity: 0;
+        }
+
+        /* Monkey fades from 0% to 100% */
+        #yesScreen.show #monkey {
+            animation: monkeyFadeIn 3s ease-in-out forwards;
+        }
+
+        @keyframes monkeyFadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @media (max-width: 500px) {
@@ -180,7 +196,7 @@
 
         <div class="message">
             টুনটুনি, আমার তোর প্রতি অভিমান হওয়ার কারণে আমি তোকে
-            ব্লক করে দিয়েছিলাম, কিন্তু এখন আমি আমার ভুল বুঝতে পেরেছি..
+            ব্লক করে দিয়েছিলাম, কিন্তু এখন আমি আমার ভুল বুঝতে পেরেছি
         </div>
 
         <div class="question">
@@ -194,44 +210,63 @@
 
         <!-- Appears after No -->
         <div id="noContent">
+
             <img src="cobra.webp" id="cobra" alt="Cobra">
 
             <div class="cobraText">
                 গাঁড়ে গুলি মারব আমাশা হাগবি, Yes click kor
             </div>
+
         </div>
 
     </div>
 
     <!-- Appears after Yes -->
     <div id="yesScreen">
+
         <img src="monkey.jpeg" id="monkey" alt="Monkey">
+
     </div>
 
     <!-- Audio -->
     <audio id="dostoAudio" src="dosto.mp3"></audio>
 
     <script>
+
         function sayYes() {
+
             // Hide the original page
             document.getElementById("mainContent").style.display = "none";
 
-            // Show monkey full-screen
-            document.getElementById("yesScreen").style.display = "block";
+            // Show full-screen YES screen
+            const yesScreen = document.getElementById("yesScreen");
+            yesScreen.style.display = "block";
 
-            // Start audio
+            // Start MP3 immediately
             const audio = document.getElementById("dostoAudio");
+
             audio.currentTime = 0;
+
             audio.play().catch(error => {
                 console.log("Audio could not autoplay:", error);
             });
+
+            // Start image fade-in
+            setTimeout(() => {
+                yesScreen.classList.add("show");
+            }, 550);
         }
 
+
         function sayNo() {
+
             // Show cobra and message
             document.getElementById("noContent").style.display = "block";
+
         }
+
     </script>
 
 </body>
 </html>
+            
